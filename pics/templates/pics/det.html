@@ -1,7 +1,6 @@
 
 <!doctype html>
 <html lang="en">
-
   <head>
     {% load staticfiles %}
 
@@ -11,7 +10,7 @@
     <meta name="author" content="">
     <link rel="icon" href="../../../../favicon.ico">
 
-    <title>Roshni Naveen Blog </title>
+    <title>{{ pics.title }}</title>
 
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
@@ -22,7 +21,7 @@
 
     <header>
       <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <a class="navbar-brand" href="{% url 'home' %}">Roshni Naveen</a>
+        <a class="navbar-brand" href="{% url 'home'%}">Roshni Naveen</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -32,56 +31,37 @@
               <a class="nav-link" href="https://www.linkedin.com/in/roshni-naveen-131b3b127/">LinkedIn</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="{% static 'Gawde_Vikrant_Resume.pdf' %}">Resume</a>
+              <a class="nav-link" href="{ % static 'rn.pdf' % }">Resume</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="{% url 'allblogs' %}">Blog</a>
+              <a class="nav-link" href="{% url 'allblogs'%}">Blog</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="{% url 'allpics' %}">My Pictures</a>
-            </li>
+
+
           </ul>
         </div>
       </nav>
     </header>
 
     <main role="main">
-
-      <section class="jumbotron text-center">
-        <div class="container">
-          <h1 class="jumbotron-heading">Hi, I'm Roshni!</h1>
-          <p class="lead text-muted">Hey my name is Roshni Naveen and I love writing blogs. It is the thrill of communicating thoughts in an entirely different way to connect with the reader at an emotional level.</p>
-          <p>
-            <a href="mailto:roshniyalanki@gmail.com" class="btn btn-primary my-2">Email Me!</a>
-
-          </p>
-          <img src="{% static '10610599_10204195890760548_8012169183887752531_n.jpg' %}" height="700" width="800"/>
-        </div>
-      </section>
-      <p> <h3 class="text-center"> Projects & Jobs </h3> </p>
-      <hr/>
-      <div class="album py-5 bg-light">
-        <div class="container">
-
-          <div class="row">
-            {% for job in jobs.all %}
-            <div class="col-md-4">
-              <div class="card mb-4 box-shadow">
-                <img class="card-img-top" src="{{ job.image.url }}" alt="Card image cap">
-                <div class="card-body">
-                  <p class="card-text">{{ job.summary }}</p>
-                  <div class="d-flex justify-content-between align-items-center">
+      <div class="container">
+      <h1 class="text-center pt-3">Welcome to My Pictures</h1>
+      <br/>
+      <br/>
 
 
-                  </div>
-                </div>
-              </div>
-            </div>
-            {% endfor %}
-           </div>
+       <a href = "{% url 'det' pics.id %}"><h3> {{ pics.title }} </h3></a>
 
-        </div>
-      </div>
+      <br/>
+      <br/>
+      <img class="img-fluid" src="{{ pics.image.url }}", height=200 width=300 />
+      <br/>
+      <br/>
+      <p> {{ pics.body }}</p>
+      <br/>
+      <br/>
+      <br/>
+
     </div>
     </main>
 
