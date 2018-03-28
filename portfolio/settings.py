@@ -31,6 +31,8 @@ ALLOWED_HOSTS = ['138.197.68.198','roshninaveen.info','www.roshninaveen.info']
 # Application definition
 
 INSTALLED_APPS = [
+
+    'pics.apps.PicsConfig',
     'blog.apps.BlogConfig',
     'jobs.apps.JobsConfig',
     'django.contrib.admin',
